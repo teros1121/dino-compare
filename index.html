@@ -33,6 +33,8 @@
     //"1" - string (str)
 
     function myFunction(){
+	  var x = document.getElementById("myForm");
+	  x.style.display = "none";
       //Get current operation (addition, subtraction, etc)
       var e = document.getElementById("operations");
       var current_operation = e.options[e.selectedIndex].value;
