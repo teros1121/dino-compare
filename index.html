@@ -89,7 +89,23 @@
    
     
 	function generateTiles(){
-		return 'a';
+		for (var i = 0; i < dinos_img['Dinos'].length; i++) {
+			var card = '';
+			var species = dinos_img.Dinos[i].species;
+			card += '<center><img src="images/'+species.toLowerCase()+'.png"> </center>';
+			card += '</br>';
+			card += '<center>';
+			card += 'species: ' + dinos_img.Dinos[i].species; 
+			card += '</center>';
+			card += '</br>';
+			card += '<center>';
+			card += 'diet: ' + dinos_img.Dinos[i].diet;
+			card += '</br>';
+			card += '</center>';
+			document.getElementById("data").innerHTML += card;
+			console.log(dinos_img['Dinos'][i]);
+		}
+	return 'a';
 	}
 
     function myFunction(){
@@ -104,39 +120,20 @@
 
       var weight_in_pounds = document.getElementById("weight");
       var second_val_var = Number(weight_in_pounds.value);
-	  document.getElementById("data").innerHTML = "Hello World!";
-	  
-      
-      var result = "An error has occured.";
-      if(current_operation == "add"){
-        
-        var result = add(first_val_var, second_val_var);
-      }
-
-      if(current_operation == "sub"){
-        var result = subtract(first_val_var, second_val_var);
-      }
-
-      if(current_operation == "multi"){
-        var result = multiply_function(first_val_var, second_val_var);
-      }
-
-      if(current_operation == "div"){
-        var result = divide(first_val_var, second_val_var);
-      }
-
-      document.getElementById("total").innerHTML = "Total Value: " + String(result);
+	  document.getElementById("data").innerHTML;
       
     }
+	function main() {
+		myFunction();
+		generateTiles();
+	}
   </script>
-
+	
   <body>
     <p id = "demo"><p>
 	
 	<div id="myForm">
-  This is my DIV element.
-
-
+  
     <form>
     <div class="form-group row">
 
@@ -156,12 +153,11 @@
 	  </div>
     </div>
   </form>
+  <button onclick="main()" class="btn btn-outline-success btn-lg">Compare!</button>
   </div>
   <div id = "data">
   
   </div>
-<button onclick="myFunction()" class="btn btn-outline-success btn-lg">Calculate!</button>
-<p id = "total">Total Value: </p>
     <!-- <img src = "https://www.sciencenews.org/wp-content/uploads/2019/01/013019_JR_panda-diet_feat.jpg"></img> !-->
   </body>
 
